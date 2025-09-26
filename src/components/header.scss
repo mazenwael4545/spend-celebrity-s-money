@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "../helpers/_variables.scss" as *;
+
+.header {
+  width: 85%;
+  border: 1px solid $primary;
+  height: 60px;
+  border-radius: 12px;
+  background-color: $light-bg;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: $primary;
+    }
+  }
+
+  // Responsive styles for mobile screens
+  @media (max-width: 600px) {
+    width: 98%;
+    height: auto;
+    gap: 10%;
+    padding: 10px 5px;
+
+    .logo {
+      .logo-image {
+        width: 40px;
+        height: 40px;
+      }
+      .logo-text {
+        font-size: 18px;
+      }
+    }
+  }
+}

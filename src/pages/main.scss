@@ -1,0 +1,138 @@
+@use "../helpers/_variables.scss" as *;
+.main {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: $home-light-bg;
+    padding: 50px;
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: $light-text;
+      }
+      .button {
+        background-color: $primary;
+        padding: 6px 12px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        color: #f1f1f1;
+        border-radius: 12px;
+      }
+    }
+    .characters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+      @include loader(50px);
+      .selected {
+        border: 5px solid $primary;
+      }
+      .character {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $light-bg;
+        border-radius: 12px;
+        padding: 10px;
+        transition: 0.2s;
+        gap: 10px;
+        color: black;
+        &:hover {
+          background-color: $primary;
+          color: #f1f1f1;
+        }
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+        }
+        .name {
+          font-size: 20px;
+          font-weight: bold;
+          color: goldenrod;
+        }
+        .balance {
+          margin-top: 5px;
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      padding: 20px;
+      gap: 30px;
+      .top {
+        gap: 15px;
+        h2 {
+          font-size: 22px;
+        }
+        .button {
+          font-size: 16px;
+          padding: 5px 10px;
+        }
+      }
+      .characters {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        .character {
+          padding: 8px;
+          .name {
+            font-size: 16px;
+          }
+          .balance {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    @media (max-width: 480px) {
+      padding: 8px;
+      gap: 15px;
+      .top {
+        flex-direction: column;
+        gap: 8px;
+        h2 {
+          font-size: 16px;
+        }
+        .button {
+          font-size: 12px;
+          padding: 4px 8px;
+        }
+      }
+      .characters {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-column-gap: 5px;
+        grid-row-gap: 8px;
+        .character {
+          padding: 6px;
+          .name {
+            font-size: 13px;
+          }
+          .balance {
+            font-size: 12px;
+          }
+          img {
+            width: 80px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

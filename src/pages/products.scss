@@ -1,0 +1,218 @@
+@use "sass:color";
+@use "../helpers/_variables.scss" as *;
+header {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background-color: $primary;
+  color: white;
+  h1 {
+    font-weight: bold;
+    font-size: 50px;
+  }
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 22px;
+  }
+}
+
+.products-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding: 0 10px;
+  width: 100%;
+  @include loader(50px);
+  .receipt-sidebar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    width: 20%;
+    flex: 5;
+
+    ul {
+      list-style: none;
+      text-align: center;
+    }
+  }
+  .products {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background-color: $light-bg;
+      border-radius: 12px;
+      padding: 10px;
+      height: 350px;
+      transition: 0.2s;
+      gap: 10px;
+      color: black;
+      flex: 5;
+      img {
+        width: 100%;
+        height: auto;
+        height: 50%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        .product-title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .product-price {
+          font-size: 18px;
+          color: #000;
+        }
+        .buttons {
+          display: flex;
+          gap: 5px;
+          input {
+            width: 60px;
+            background: transparent;
+            border: 1px solid black;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+          }
+          button {
+            background-color: $primary;
+            padding: 6px 12px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #f1f1f1;
+            border-radius: 12px;
+            transition: 0.2s;
+            &:hover {
+              background-color: color.adjust($primary, $lightness: -10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 900px) {
+  header {
+    h1 {
+      font-size: 32px;
+    }
+    .info {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+  }
+  .products-container {
+    gap: 15px;
+    .receipt-sidebar {
+      width: 30%;
+      padding: 6px;
+    }
+    .products {
+      width: 70%;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 15px;
+      grid-row-gap: 15px;
+      .product {
+        height: 280px;
+        padding: 8px;
+        img {
+          height: 45%;
+        }
+        .product-info {
+          .product-title {
+            font-size: 16px;
+          }
+          .product-price {
+            font-size: 14px;
+          }
+          .buttons {
+            button {
+              font-size: 14px;
+              padding: 4px 8px;
+            }
+            input {
+              width: 40px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    h1 {
+      font-size: 30px;
+    }
+    .info {
+      font-size: 18px;
+      gap: 5px;
+      padding: 0 2px;
+      justify-content: space-around;
+    }
+  }
+  .products-container {
+    flex-direction: column;
+    gap: 10px;
+    .receipt-sidebar {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 4px;
+    }
+    .products {
+      width: 70%;
+      grid-template-columns: 1fr;
+      grid-column-gap: 5px;
+      grid-row-gap: 10px;
+      .product {
+        height: 200px;
+        padding: 5px;
+        img {
+          height: 100px;
+          object-fit: cover;
+        }
+        .product-info {
+          .product-title {
+            font-size: 13px;
+          }
+          .product-price {
+            font-size: 11px;
+          }
+          .buttons {
+            button {
+              font-size: 11px;
+              padding: 2px 5px;
+            }
+            input {
+              width: 30px;
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

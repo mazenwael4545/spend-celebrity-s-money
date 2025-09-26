@@ -1,0 +1,123 @@
+@use "../helpers/_variables.scss" as *;
+
+.add-products-form {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  background: #0000003c;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .close {
+    position: relative;
+    top: -15%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  .form {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: inherit;
+    gap: 10px;
+    label {
+      font-family: "Lalezar", sans-serif;
+      font-size: 18px;
+      color: $primary;
+    }
+    input {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid $primary;
+      outline: none;
+      font-size: 16px;
+      font-family: "Lalezar", sans-serif;
+      margin-right: 10px;
+    }
+    button {
+      width: fit-content;
+      padding: 8px 14px;
+      border: none;
+      outline: none;
+      background-color: $primary;
+      color: white;
+      font-family: "Lalezar", sans-serif;
+      font-size: large;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: auto;
+      @include loader(12px);
+    }
+  }
+}
+@media (max-width: 600px) {
+  .form {
+    width: 90%;
+    padding: 10px;
+    gap: 8px;
+    input {
+      width: 98%;
+      padding: 12px;
+      font-size: 14px;
+    }
+    button {
+      padding: 6px 10px;
+      font-size: 15px;
+    }
+  }
+  .close {
+    top: -50px;
+  }
+}
+.add-product {
+  background: $primary;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  font-family: "Lalezar";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  color: white;
+  gap: 10px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+.products {
+  width: 90%;
+  margin: auto;
+  @include loader(50px);
+  .prod-row {
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: $secondary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      background: $primary;
+      border: none;
+      outline: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include loader(10px);
+    }
+  }
+}

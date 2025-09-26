@@ -1,0 +1,5 @@
+@use "../helpers/_variables.scss" as *;
+
+.loader{
+    @include loader(50px);
+}
